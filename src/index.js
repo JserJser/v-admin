@@ -8,7 +8,6 @@ import iView from 'iview'
 import 'iview/dist/styles/iview.css'
 
 require('normalize.css')
-require('../theme/index.css')
 require('./assets/css/reset.less')
 require('./assets/css/lib.less')
 

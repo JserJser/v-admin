@@ -6,16 +6,16 @@ import store from './store'
 
 Vue.use(Router)
 
-const Layout = resolve => require(['@/pages/layout/index.vue'], resolve)
-const Login = resolve => require(['@/pages/login/index.vue'], resolve)
-const Index = resolve => require(['@/pages/index/index.vue'], resolve)
-const Error = resolve => require(['@/pages/error/index.vue'], resolve)
-const ResetPassword = resolve => require(['@/pages/reset_password/index.vue'], resolve)
-const ShopManage = resolve => require(['@/pages/user_manage/shop/index.vue'], resolve)
-const MemberManage = resolve => require(['@/pages/user_manage/member/index.vue'], resolve)
-const FrontendCategoryManage = resolve => require(['@/pages/category_manage/frontend_category/index.vue'], resolve)
-const BackendCategoryManage = resolve => require(['@/pages/category_manage/backend_category/index.vue'], resolve)
-const authManage = resolve => require(['@/pages/auth/index.vue'], resolve)
+const Layout = () => import('@/pages/layout/index.vue')
+const Login = () => import('@/pages/login/index.vue')
+const Index = () => import('@/pages/index/index.vue')
+const Error = () => import('@/pages/error/index.vue')
+const ResetPassword = () => import('@/pages/reset_password/index.vue')
+const ShopManage = () => import('@/pages/user_manage/shop/index.vue')
+const MemberManage = () => import('@/pages/user_manage/member/index.vue')
+const FrontendCategoryManage = () => import('@/pages/category_manage/frontend_category/index.vue')
+const BackendCategoryManage = () => import('@/pages/category_manage/backend_category/index.vue')
+const authManage = () => import('@/pages/auth/index.vue')
 
 const whiteList = ['/login']
 const router = new Router({

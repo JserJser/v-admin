@@ -4,23 +4,13 @@
     <Button type="primary">Primary</Button>
     <Button type="dashed">Dashed</Button>
     <Button v-hasPermission="'addText'" type="text">Text</Button>
-    <br><br>
+    <br>
+    <br>
     <Button type="info">Info</Button>
     <Button type="success">Success</Button>
     <Button type="warning">Warning</Button>
     <Button type="error">Error</Button>
   </div>
 </template>
-<script src='./index.js'>
-export default {
-  name: 'Index',
-  components: {},
-  filters: {},
-  data() {
-    return {}
-  },
-  created() {},
-  methods: {},
-}
-</script>
+<script src='./index.js' />
 <style lang='less' src='./index.less' scoped />

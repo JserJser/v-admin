@@ -1,30 +1,16 @@
-// http://eslint.org/docs/user-guide/configuring
-
 module.exports = {
   root: true,
-  parserOptions: {
-    parser: 'babel-eslint',
-    sourceType: 'module',
-  },
   env: {
-    browser: true,
+    node: true,
   },
-  extends: ['airbnb-base', 'plugin:vue/essential'],
-  // required to lint *.vue files
-  plugins: ['vue'],
+  extends: [
+    'plugin:vue/essential',
+    '@vue/airbnb',
+  ],
   globals: {
     _: true,
     AMap: true,
   },
-  // check if imports actually resolve
-  settings: {
-    'import/resolver': {
-      webpack: {
-        config: 'webpack.config.js',
-      },
-    },
-  },
-  // add your custom rules here
   rules: {
     // don't require .vue extension when importing
     'import/extensions': [
@@ -43,8 +29,9 @@ module.exports = {
       },
     ],
     // allow debugger during development
-    'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0,
-    semi: ['error', 'never'],
+    'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    'semi': ['error', 'never'],
     'global-require': 0,
     'import/no-dynamic-require': 0,
     'no-return-assign': [0],
@@ -62,5 +49,11 @@ module.exports = {
     'no-restricted-globals': ['error', 'event', 'fdescribe'],
     'vue/no-parsing-error': [2, { 'x-invalid-end-tag': false }],
     'import/prefer-default-export': 0,
+    "vue/no-use-v-if-with-v-for": ["error", {
+      "allowUsingIterationVar": true
+    }]
   },
-}
+  parserOptions: {
+    parser: 'babel-eslint',
+  },
+};

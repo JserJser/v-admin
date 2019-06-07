@@ -1,4 +1,5 @@
 import { mapState } from 'vuex'
+import { filter } from 'lodash'
 
 export default {
   name: 'sidebar',
@@ -14,9 +15,11 @@ export default {
     this.getCurrentRoute()
   },
   computed: {
-    ...mapState([
-      'permissionRoutes',
-    ]),
+    ...mapState({
+      permissionRoutes({ permissionRoutes }) {
+        return filter(permissionRoutes, item => !item.hidden && item.children.length)
+      },
+    }),
   },
   methods: {
     getCurrentRoute() {

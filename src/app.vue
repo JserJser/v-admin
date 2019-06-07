@@ -4,9 +4,10 @@
   </div>
 </template>
 <script>
+/* eslint-disable */
 export default {
-  name: 'app',
-}
+  name: "app"
+};
 </script>
 <style>
 #app {

@@ -12,10 +12,13 @@ require('./assets/css/reset.less')
 require('./assets/css/lib.less')
 
 import directive from './utils/directive'
+import './registerServiceWorker'
 
 import App from './app'
 import router from './router'
 import store from './store'
+
+Vue.config.productionTip = false
 
 directive(Vue)
 
@@ -31,14 +34,9 @@ const i18n = new VueI18n({
 })
 
 /* eslint-disable no-new */
-
 new Vue({
-  el: '#app',
   i18n,
   router,
   store,
-  template: '<App/>',
-  components: {
-    App,
-  },
-})
+  render: h => h(App),
+}).$mount('#app')

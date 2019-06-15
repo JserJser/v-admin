@@ -12,7 +12,7 @@ export default {
   },
   data() {
     return {
-      initLang: 'zh',
+      selectedLang: 'zh',
       langList: [
         { value: 'zh', label: '中文' },
         { value: 'en', label: '英语' },
@@ -36,6 +36,7 @@ export default {
       screenfull.toggle()
     },
     onLangSelectChange(val) {
+      this.selectedLang = val
       this.$i18n.locale = val
     },
     backToIndex() {

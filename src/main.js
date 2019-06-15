@@ -24,12 +24,14 @@ directive(Vue)
 Object.defineProperty(Vue.prototype, '_', { value: _, enumerable: false })
 Vue.use(VueI18n)
 Vue.use(iView)
-Vue.config.productionTip = false
+Vue.locale = () => { }
 
 const i18n = new VueI18n({
   locale: 'zh', // set locale
   messages: i18nMessages,
 })
+
+iView.i18n((key, value) => i18n.t(key, value))
 
 /* eslint-disable no-new */
 new Vue({

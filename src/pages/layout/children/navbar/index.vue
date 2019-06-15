@@ -11,7 +11,7 @@
       <Breadcrumb class="bread-crumb"/>
     </div>
     <div class="center-con">
-      <Select :value="initLang" @on-change="onLangSelectChange" style="width:100px">
+      <Select :value="selectedLang" @on-change="onLangSelectChange" style="width:100px">
         <Option v-for="item in langList" :value="item.value" :key="item.value">{{ item.label }}</Option>
       </Select>
     </div>

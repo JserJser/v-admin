@@ -7,9 +7,6 @@ import VueI18n from 'vue-i18n'
 import iView from 'iview'
 import 'iview/dist/styles/iview.css'
 
-require('normalize.css')
-require('./assets/css/reset.less')
-require('./assets/css/lib.less')
 
 import directive from './utils/directive'
 import './registerServiceWorker'
@@ -17,6 +14,7 @@ import './registerServiceWorker'
 import App from './app'
 import router from './router'
 import store from './store'
+import i18nMessages from './locales'
 
 Vue.config.productionTip = false
 
@@ -30,8 +28,10 @@ Vue.use(VueI18n)
 Vue.config.productionTip = false
 
 const i18n = new VueI18n({
-  locale: 'en', // set locale
+  locale: 'zh', // set locale
+  messages: i18nMessages,
 })
+setTimeout(() => i18n.locale = 'ja', 3000)
 
 /* eslint-disable no-new */
 new Vue({

@@ -8,7 +8,6 @@ export default {
     return {
       activeName: '',
       openNames: '',
-
     }
   },
   created() {
@@ -21,11 +20,22 @@ export default {
       },
     }),
   },
+  watch: {
+    $route() {
+      this.getCurrentRoute()
+    },
+    openNames(newName, oldName) {
+      if (!_.isEqual(newName, oldName)) {
+        this.$nextTick(() => this.$refs.menus.updateOpened())
+      }
+    },
+  },
   methods: {
     getCurrentRoute() {
-      const matched = this.$route.matched.filter(item => item.name) || []
-      this.openNames = [matched[0] && matched[0].path]
-      this.activeName = this.$route.path
+      const { matched, path } = this.$route
+      const matchedNames = matched.filter(item => item.name) || []
+      this.openNames = [matchedNames[0] && matchedNames[0].path]
+      this.activeName = path
     },
 
   },

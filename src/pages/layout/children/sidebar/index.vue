@@ -2,6 +2,7 @@
   <Menu
     class="sidebar-wrapper"
     theme="dark"
+    ref="menus"
     :active-name="activeName"
     :open-names="openNames"
     accordion

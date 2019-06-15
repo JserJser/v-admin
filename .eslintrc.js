@@ -31,7 +31,7 @@ module.exports = {
     // allow debugger during development
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-    'semi': ['error', 'never'],
+    semi: ['error', 'never'],
     'global-require': 0,
     'import/no-dynamic-require': 0,
     'no-return-assign': [0],
@@ -49,11 +49,11 @@ module.exports = {
     'no-restricted-globals': ['error', 'event', 'fdescribe'],
     'vue/no-parsing-error': [2, { 'x-invalid-end-tag': false }],
     'import/prefer-default-export': 0,
-    "vue/no-use-v-if-with-v-for": ["error", {
-      "allowUsingIterationVar": true
-    }]
+    'vue/no-use-v-if-with-v-for': ['error', {
+      allowUsingIterationVar: true,
+    }],
   },
   parserOptions: {
     parser: 'babel-eslint',
   },
-};
+}

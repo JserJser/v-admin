@@ -22,16 +22,14 @@ directive(Vue)
 
 // add lodash 插件
 Object.defineProperty(Vue.prototype, '_', { value: _, enumerable: false })
-
-Vue.use(iView)
 Vue.use(VueI18n)
+Vue.use(iView)
 Vue.config.productionTip = false
 
 const i18n = new VueI18n({
   locale: 'zh', // set locale
   messages: i18nMessages,
 })
-setTimeout(() => i18n.locale = 'ja', 3000)
 
 /* eslint-disable no-new */
 new Vue({

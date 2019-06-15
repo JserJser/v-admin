@@ -1,5 +1,5 @@
 <template>
-  <i-menu
+  <Menu
     class="sidebar-wrapper"
     theme="dark"
     :active-name="activeName"
@@ -12,8 +12,9 @@
           <Icon :type="item.icon"/>
           {{item.name}}
         </template>
-        <template v-for="child in item.children" v-if="!child.hidden">
+        <template v-for="child in item.children">
           <MenuItem
+            v-if="!child.hidden"
             :to="`${item.path}/${child.path}`"
             :name="`${item.path}/${child.path}`"
             :key="child.path"
@@ -21,7 +22,7 @@
         </template>
       </Submenu>
       <MenuItem
-        v-else
+        v-if="item.children.length ===1 && !item.children[0].hidden"
         :to="`${item.path}/${item.children[0].path}`"
         :name="`${item.path}/${item.children[0].path}`"
         :key="item.name"
@@ -30,6 +31,6 @@
         {{item.name}}
       </MenuItem>
     </template>
-  </i-menu>
+  </Menu>
 </template>
 <script src='./index.js'></script>

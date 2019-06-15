@@ -1,5 +1,8 @@
 <template>
   <div class="home">
+    <h1>{{$t('message.hello')}}</h1>
+    <DatePicker type="date" placeholder="Select date" style="width: 200px"></DatePicker>
+    <Page :total="100" show-elevator/>
     <Button>Default</Button>
     <Button type="primary">Primary</Button>
     <Button type="dashed">Dashed</Button>

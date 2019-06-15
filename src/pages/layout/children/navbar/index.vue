@@ -1,13 +1,21 @@
 <template>
-  <i-menu class="navbar-wrapper" theme="light" mode="horizontal">
-    <Avatar
-      class="logo"
-      shape="square"
-      size="large"
-      src="http://www.jituwang.com/uploads/allimg/151209/258057-15120Z01J669.jpg"
-    />
-    <div class="right-con">
+  <div class="navbar-wrapper">
+    <div class="left-con">
+      <Avatar
+        @click.native="backToIndex"
+        class="logo"
+        shape="square"
+        size="large"
+        src="http://www.jituwang.com/uploads/allimg/151209/258057-15120Z01J669.jpg"
+      />
       <Breadcrumb class="bread-crumb"/>
+    </div>
+    <div class="center-con">
+      <Select :value="initLang" @on-change="onLangSelectChange" style="width:100px">
+        <Option v-for="item in langList" :value="item.value" :key="item.value">{{ item.label }}</Option>
+      </Select>
+    </div>
+    <div class="right-con">
       <i @click="toggleFullScreen" class="iconfont icon-full-screen pointer"></i>
       <Dropdown placement="bottom-end" @on-click="logout">
         <div class="avatar-wrapper pointer">
@@ -23,7 +31,7 @@
         </DropdownMenu>
       </Dropdown>
     </div>
-  </i-menu>
+  </div>
 </template>
 <script src='./index.js'></script>
 <style lang='less' src='./index.less' scoped />

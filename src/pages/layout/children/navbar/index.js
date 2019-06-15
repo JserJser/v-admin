@@ -11,7 +11,14 @@ export default {
     Breadcrumb,
   },
   data() {
-    return {}
+    return {
+      initLang: 'zh',
+      langList: [
+        { value: 'zh', label: '中文' },
+        { value: 'en', label: '英语' },
+        { value: 'ja', label: '日语' },
+      ],
+    }
   },
   computed: {
     ...mapState([
@@ -27,6 +34,12 @@ export default {
         return false
       }
       screenfull.toggle()
+    },
+    onLangSelectChange(val) {
+      this.$i18n.locale = val
+    },
+    backToIndex() {
+      this.$router.push({ path: '/' })
     },
     logout() {
       cookie.set('userToken', '')
